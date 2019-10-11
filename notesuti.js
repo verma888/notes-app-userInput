@@ -37,7 +37,12 @@ const loadNotes = function(){
 }
 
 const removeNote = function(title){
-    console.log("Note with title " + title +" has been removed");
+    const rnotes = loadNotes();
+    const keepNotes = rnotes.filter(function(note){
+        return note.title!==title;
+    })
+    saveNotes(keepNotes);
+    console.log("title "+title + " has been removed!!");
 }
 
 module.exports= {
